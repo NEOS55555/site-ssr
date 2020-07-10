@@ -1,0 +1,53 @@
+@import '@/styles/default.scss';
+
+.header {
+	color: $fontColor;
+	height: $headerHeight;
+	position: fixed;
+	background: #000;
+	width: 100%;
+	z-index: 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.logo-ctn {
+		display: flex;
+    align-items: center;
+		.logo {
+			margin-right: 15px;
+
+		}
+		img {
+			height: 30px;
+		}
+	}
+	.max-container {
+		display: flex;
+    /*flex-direction: row-reverse;*/
+    justify-content: space-between;
+		.user-ctn {
+			.user-btn {
+				color: $fontColor;
+			}
+		}
+		/* .ant-input-group-addon {
+			background-color: transparent;
+			.ant-btn {
+			}
+			.ant-btn:hover {
+				border-color: $borderColor;
+			}
+		} */
+	}
+	.top-nav-list {
+		display: flex;
+		margin: 0;
+		margin-right: 15px;
+		li {
+			font-size: 14px;
+			&:not(:last-child) {
+				margin-right: 10px;
+			}
+		}
+	}
+}

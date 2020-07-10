@@ -1,0 +1,24 @@
+@import '@/styles/default.scss';
+.site-wrapper {
+	/*display: flex;*/
+	color: $fontColor;
+	/*justify-content: center;*/
+	/* background: #f6f6f6; */
+	
+}
+/* .site-box {
+	width: 694px;
+
+} */
+.site-container {
+	width: 100%;
+	/* background: #fff; */
+	/*position: relative;*/
+	/*z-index: 1;*/
+
+	.site-item:not(:last-child) {
+		margin-bottom: 4px;
+	}
+}
+
+
