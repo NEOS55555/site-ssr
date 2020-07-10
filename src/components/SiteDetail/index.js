@@ -18,41 +18,23 @@ const CommentCtn = dynamic(
 // import BraftEditor from 'braft-editor'
 
 class SiteDetail extends Component {
-  constructor (props) {
-    super(props)
-    // console.log(this.props)
-    this.state = {
-      siteData: {},
-      isCollected: props.data.isCollected,
-      // commitContent: BraftEditor.createEditorState(''),
-    }
-  }
   
-  getDerivedStateFromProps (props, state) {
+  /*static getDerivedStateFromProps (props, state) {
     const { isCollected } = props.data;
     if (isCollected !== state.isCollected) {
+    console.log(props.data)
       return {
         isCollected
       }
     }
-  } 
+    return null
+  }*/ 
  
-  collectClick = () => {
-    const { data: { _id } } = this.props
-    
-    // this.setState({ isCollecting: true })
-    const { isCollected } = this.state;
-    return collectSite({_id}).then(res => {
-      // console.log(res)
-      this.setState({
-        isCollected: !isCollected
-      })
-    })
-  }
+ 
 	render() {
-    // const { id } = this.props.router.query
     const { id, data: siteData={} } = this.props
-    const { isCollected } = this.state;
+    // const { isCollected } = this.state;
+    // console.log(isCollected)
     return (
       <div className="site-detail main-content site-wrapper">
         <div className="site-container">
@@ -62,8 +44,6 @@ class SiteDetail extends Component {
                 isSystem={false} 
                 onlyShow={true}
                 data={siteData} 
-                isCollected={isCollected}
-                collectClick={this.collectClick}
               />
               : <p>非常抱歉，该网站已下架！</p>
           }
@@ -77,4 +57,4 @@ class SiteDetail extends Component {
 }
 
 
-export default (SiteDetail);
+export default SiteDetail;

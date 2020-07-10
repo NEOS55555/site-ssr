@@ -35,6 +35,16 @@ class SiteItem extends Component {
 			// hasRated: false,
 		}
 	}
+	// 这么写的问题就在于，本身的isCollected点击事件已经被屏蔽了
+	/*static getDerivedStateFromProps (props, state) {
+    const { isCollected } = props.data || {};
+    if (isCollected !== state.isCollected) {
+      return {
+        isCollected
+      }
+    }
+    return null
+  } */
 	/*static getDerivedStateFromProps (props, state) {
 		console.log(props, state)
 		if ((props.data || {}).isCollected !== state.isCollected) {
