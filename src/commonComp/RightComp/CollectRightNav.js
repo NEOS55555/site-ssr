@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import Link from 'next/link'
 // import {connect} from 'react-redux'
 import { Menu } from 'antd';
-import Link from 'next/Link'
 // import { Link } from "react-router-dom";
 // import { withRouter } from "react-router";
 import { withRouter } from "next/router";

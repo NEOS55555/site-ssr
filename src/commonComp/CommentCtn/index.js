@@ -2,21 +2,17 @@ import React, { Component, Fragment } from 'react';
 import dynamic from 'next/dynamic'
 import { Button, Pagination } from 'antd';
 import { reportCommit, getReportCommit } from '@/store/actions'
-import './CommentCtn.scss'
 import CommentItem from '../CommentItem'
 import CommentReplyCtn from '../CommentReplyCtn'
 import { connect } from 'react-redux'
 import { MAX_COMMIT_LEN } from '@/common/constant'
 // 把UPDATE_DATA 修改一下 改成函数，不要到处写
 import BraftEditor from 'braft-editor'
-/*const BraftEditor = dynamic(
-  () => import('braft-editor'),
-  { ssr: false }
-)*/
 import { ContentUtils } from 'braft-utils'
 import BraftEditorMax from '@/commonComp/BraftEditorMax'
 // import { Modifier } from 'draft-js'
 // console.log(BraftEditor)
+import './CommentCtn.scss'
 
 class CommentCtn extends Component {
   constructor (props) {

@@ -14,7 +14,7 @@ import { withRouter } from "next/router";
 import { connect } from 'react-redux'
 
 import DelIcon from './Icons/DelIcon'
-import Link from 'next/Link'
+import Link from 'next/link'
 import routerMap from '@/common/router'
 // import showImg from '@/commonComp/ShowImg'
 import eventBus from '@/common/eventBus'

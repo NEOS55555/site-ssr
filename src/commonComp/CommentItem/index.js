@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
+import Link from 'next/link'
 // import defaultFace from '@/assets/images/face.png'
-import './Comment.scss'
 // import { Link } from "react-router-dom";
 import { dateForNow } from '@/common/common'
 // import { imgUrl } from '@/common/url'
-import Link from 'next/Link'
 import routerMap from '@/common/router'
+import './Comment.scss'
 
 const defaultFace = '/static/images/face.png'
 class Comment extends Component {

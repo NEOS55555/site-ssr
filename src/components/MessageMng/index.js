@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getReplyMeList, clearreplynum, setReplyNum } from '@/store/actions'
 // import { withRouter } from "react-router";
 import { Pagination } from 'antd'
-import Link from 'next/Link'
+import Link from 'next/link'
 import { connect } from 'react-redux'
 import { FEEDBACK_SITEID } from '@/common/constant'
 import Empty from '@/commonComp/Empty'

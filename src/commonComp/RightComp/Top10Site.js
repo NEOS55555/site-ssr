@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
+import Link from 'next/link'
 import {connect} from 'react-redux'
 // import { Menu } from 'antd';
 // import { Link } from "react-router-dom";
-import Link from 'next/Link'
 // import { getTop10SiteList } from '@/store/actions'
 import { addView } from '@/store/actions'
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import Link from 'next/link'
 import { Menu } from 'antd';
 // import { Link } from "react-router-dom";
-import Link from 'next/Link'
 // import { AccountNavRoute } from '@/common/Routers'
 
 const AccountNavRoute = [

@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import Link from 'next/link'
+import Router from 'next/router'
 // import { isSystemPage } from '@/common/common'
 import { connect } from 'react-redux'
 import Register from '@/commonComp/logReg/Register'
@@ -9,8 +11,6 @@ import { isLogOverdue } from '@/common/common'
 import { withRouter } from "next/router";
 // import { withRouter } from "react-router";
 import { getIP, updateComData, setUsername, updateSiteMngData, getSiteList, getAllCatalog, getTop10SiteList, dispatchCatalogList } from '@/store/actions'
-import Link from 'next/Link'
-import Router from 'next/router'
 // import { Link } from "react-router-dom";
 import { Dropdown, Menu, Input, Button } from 'antd'
 import { removeLoginCookie } from '@/commonComp/logReg/loginCookie'
