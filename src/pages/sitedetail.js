@@ -71,7 +71,7 @@ export async function getServerSideProps(context) {
   // console.log(req.cookies)
   // console.log(' ------------------------ ')
   const res = await axios.get(serverUrl+'/getSiteDetail', { params: { site_id: id }, headers: getServeAuthorization(req) }, )
-  const data = res.data.result
+  const data = res.data.result || {}
   // console.log(' ------------------------ ')
   // console.log(res.data)
   // console.log('in getServerSideProps')
@@ -80,9 +80,9 @@ export async function getServerSideProps(context) {
   return {
     props: {
       data, 
-      m_title: '有趣实用网——' + data.name,
-      m_keywords: data.name+','+data.tags.join(','),
-      m_description: data.desc
+      m_title: data.name && '有趣实用网——' + data.name,
+      m_keywords: data.name && (data.name+','+data.tags.join(',')),
+      m_description: data.desc && data.desc
       // defaultList: res.data.result.list,
       // defaultTotal: res.data.result.total
     },

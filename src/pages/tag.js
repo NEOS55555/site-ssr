@@ -31,7 +31,7 @@ class HomePage extends Component {
 }
 
 export async function getServerSideProps(context) {
-  console.log('in getServerSideProps --------')
+  // console.log('in getServerSideProps --------')
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   // console.log(context.params)
@@ -45,7 +45,7 @@ export async function getServerSideProps(context) {
     tag_name: words,
     isTotal: true
   })
-  console.log(res.data)
+  // console.log(res.data)
   const { result } = res.data;
   // console.log('in getServerSideProps')
   // By returning { props: posts }, the Blog component
