@@ -12,6 +12,7 @@ const {
 	clearRepArr,
 	trim,
 	fromatIOSDate,
+	strSearch
 } = require('../model/common.js')
 const {
 	getSiteCollectSql
@@ -26,9 +27,7 @@ const {
 
 
 
-function strSearch (str='') {
-	return new RegExp(str, 'gim')
-}
+
 
 module.exports = async (req, res, next) => {
 	if (!prevCheck(req, res)) {
@@ -49,7 +48,11 @@ module.exports = async (req, res, next) => {
 
 	// status = status
 	
-	const { user_id } = req.cookies
+	const ust = isUserLogin(req.headers.authorization);
+	const user_id = ust._id
+	// console.log('-------------------------------------------------')
+	// console.log(req.cookies, '\n', req.cookies.user_id)
+	// const { user_id } = req.cookies
 	let conditoin = {
 		catalog: {
 	        $elemMatch: {$eq: catalog}

@@ -9,6 +9,7 @@ import { serverUrl } from '@/common/url'
 import eventBus from '@/common/eventBus'
 import routerMap from '@/common/router'
 import { getServeAuthorization } from '@/common/common'
+import { Head } from 'next/head';
 
 class HomePage extends Component {
 	
@@ -44,15 +45,25 @@ class HomePage extends Component {
       
   }*/
   render () {
+    const { data } = this.props;
+    // console.log(data.name+','+data.tags.join(','))
     return <Fragment>
-     <SiteDetail data={this.props.data} id={this.props.router.query.id} />
-     <RightComp />
+      {/*<Head>
+        <meta
+          name="description"
+          content={`${data.name+','+data.tags.join(',')}`}
+        />
+        <meta name="Keywords" content={data.desc} />
+        <title>{'有趣实用网——' + data.name+','+data.tags.join(',')}</title>
+      </Head>*/}
+      <SiteDetail data={data} id={this.props.router.query.id} />
+      <RightComp />
     </Fragment>
   }
 }
 
 export async function getServerSideProps(context) {
-  console.log('in getServerSideProps --------')
+  // console.log('in getServerSideProps --------')
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   // console.log(context.params)
@@ -60,6 +71,7 @@ export async function getServerSideProps(context) {
   // console.log(req.cookies)
   // console.log(' ------------------------ ')
   const res = await axios.get(serverUrl+'/getSiteDetail', { params: { site_id: id }, headers: getServeAuthorization(req) }, )
+  const data = res.data.result
   // console.log(' ------------------------ ')
   // console.log(res.data)
   // console.log('in getServerSideProps')
@@ -67,7 +79,10 @@ export async function getServerSideProps(context) {
   // will receive `posts` as a prop at build time
   return {
     props: {
-      data: res.data.result
+      data, 
+      m_title: '有趣实用网——' + data.name,
+      m_keywords: data.name+','+data.tags.join(','),
+      m_description: data.desc
       // defaultList: res.data.result.list,
       // defaultTotal: res.data.result.total
     },

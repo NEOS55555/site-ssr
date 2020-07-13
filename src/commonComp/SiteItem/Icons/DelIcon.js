@@ -1,35 +1,38 @@
 import React, {Component} from 'react';
 import { CloseOutlined, VerticalAlignBottomOutlined } from '@ant-design/icons'
 // import Dialog from '@/commonComp/Dialog'
-import {connect} from 'react-redux'
+// import {connect} from 'react-redux'
+import { withRouter } from "next/router";
 import { message } from 'antd';
 // import cookie from 'react-cookies';
 // import url from '@/common/api'
 import { NORMAL_CODE } from '@/common/constant'
 import { delSite, updateSiteMngData, getSiteList } from '@/store/actions'
+import Router from 'next/router'
 import eventBus from '@/common/eventBus'
+import routerMap from '@/common/router'
 
 
 
 class CloseIcon extends Component {
-	constructor (props) {
+	/*constructor (props) {
 		super(props);
 		this.state = {
 
 		}
-	}
+	}*/
 
 	showModel = () => {
-
-		const { data, updateSiteMngData, pageIndex: tPageindex, siteTotal, pageSize, catalog, getSiteList, status: listStatus } = this.props;
-		const { _id, status, name } = data;
-		const isdown = status === NORMAL_CODE;
+    const { data, router: { query: { pageIndex=1, status, catalog, search } } } = this.props;
+		console.log(data)
+		const { _id, status: cstatus, name } = data;
+		const isdown = cstatus === NORMAL_CODE;
 		const txt = isdown ? '下架' : '删除'
-		let pageIndex = tPageindex
+		/*let pageIndex = tPageindex
 		if (!isdown) {
 			const maxPages = Math.ceil((siteTotal-1) / pageSize)
 			pageIndex = isdown ? tPageindex > maxPages ? maxPages : tPageindex : tPageindex;
-		}
+		}*/
 
 		const Dialog = eventBus.emit('getDialog#dialog')
 
@@ -39,12 +42,16 @@ class CloseIcon extends Component {
 			// footer: true,
 			onOk () {
 				Dialog.showLoading();
-				delSite({_id, status }).then(res => {
+				delSite({_id, status: cstatus }).then(res => {
 		    	// handleOk && handleOk(1)
-		    	updateSiteMngData({ pageIndex })
+		    	// updateSiteMngData({ pageIndex })
 					message.success(txt + '成功')
-					getSiteList({catalog, status: listStatus , pageIndex, pageSize, isTotal: true, is_edit: true});
 	      	Dialog.close();
+					Router.push({
+	          pathname: routerMap.system, 
+	          query: { catalog, pageIndex, search, status, rand: Math.random() }
+	        })
+					// getSiteList({catalog, status: listStatus , pageIndex, pageSize, isTotal: true, is_edit: true});
 		    }).catch(res => {
 		    	Dialog.hideLoading();
 		    })
@@ -65,7 +72,7 @@ class CloseIcon extends Component {
 		)
 	}
 }
-const mapStateToProps = state => {
+/*const mapStateToProps = state => {
 	const { siteList, siteTotal, pageIndex, pageSize, catalog, status } = state.siteMng
   return {
   	siteList,
@@ -85,7 +92,7 @@ const mapDispatchToProps = dispatch => {
 			return dispatch(getSiteList(params))
   	},
   };
-};
-// export default ComContent;
-export default connect(mapStateToProps, mapDispatchToProps)(CloseIcon);
+};*/
+export default withRouter(CloseIcon);
+// export default connect(mapStateToProps, mapDispatchToProps)(CloseIcon);
 // export default CloseIcon;

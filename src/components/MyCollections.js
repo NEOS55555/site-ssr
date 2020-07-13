@@ -60,7 +60,7 @@ class MyCollections extends Component {
 	onChange = pageIndex => {
 		this.getListAndSet({pageIndex})
 	}
-	collectClick = _id => {
+	/*collectClick = _id => {
 		const { list } = this.state;
 		return collectSite({_id}).then(res => {
 
@@ -68,7 +68,7 @@ class MyCollections extends Component {
       	list: list.map(it => it._id === _id ? {...it, isCollected: !it.isCollected} : it)
       })
     })
-  }
+  }*/
 	render () {
 		const { pageIndex, list, total } = this.state;
 
@@ -77,7 +77,7 @@ class MyCollections extends Component {
 	  		list={list} 
 	  		total={total} 
 	  		current={pageIndex} 
-	  		collectClick={this.collectClick}
+	  		// collectClick={this.collectClick}
 	  		pageSize={5}
 		  	onChange={this.onChange} 
 	  	/>

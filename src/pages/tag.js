@@ -46,12 +46,16 @@ export async function getServerSideProps(context) {
     isTotal: true
   })
   console.log(res.data)
+  const { result } = res.data;
   // console.log('in getServerSideProps')
   // By returning { props: posts }, the Blog component
   // will receive `posts` as a prop at build time
   return {
     props: {
-      ...res.data.result
+      ...result,
+      m_title: '有趣实用网——搜索结果' + words,
+      // m_keywords: data.name+','+data.tags.join(','),
+      // m_description: data.desc
       // defaultList: res.data.result.list,
       // defaultTotal: res.data.result.total
     },

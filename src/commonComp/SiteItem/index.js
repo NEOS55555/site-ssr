@@ -4,7 +4,7 @@ import { EditOutlined, HeartFilled } from '@ant-design/icons'
 import { getStatus, getCeil5 } from '@/common/common'
 import { NORMAL_CODE } from '@/common/constant'
 // import Dialog from '@/commonComp/Dialog'
-import imgurl from '@/common/url'
+// import imgurl from '@/common/url'
 // import cookie from 'react-cookies'
 import { setRate, addView, collectSite } from '@/store/actions'
 import { Rate, Spin, Tooltip } from 'antd';
@@ -192,7 +192,7 @@ class SiteItem extends Component {
 					<div className="rich-content-text" dangerouslySetInnerHTML={{__html: desc}} ></div>
 					<div className="rich-content-cover">
 						<div className="rich-content-cover-inner">
-							{img && <img /*onClick={() => window.open(imgurl + img)}*/ src={imgurl + img} alt="网页展示图"/>}
+							{img && <img onClick={() => open(img)} src={img} alt="网页展示图"/>}
 						</div>
 					</div>
 					<div className="rich-footer">

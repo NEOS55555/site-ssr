@@ -3,8 +3,9 @@ import React, { Component, Fragment } from 'react';
 import './Comment.scss'
 // import { Link } from "react-router-dom";
 import { dateForNow } from '@/common/common'
-import url from '@/common/url'
+// import { imgUrl } from '@/common/url'
 import Link from 'next/Link'
+import routerMap from '@/common/router'
 
 const defaultFace = '/static/images/face.png'
 class Comment extends Component {
@@ -18,7 +19,7 @@ class Comment extends Component {
       <div className="comment-item">
         <div className="comment-box">
           <div className="comment-avatar">
-            <img src={user_face ? url + user_face : defaultFace} alt="头像"/>
+            <img src={user_face ? user_face : defaultFace} alt="头像"/>
           </div>
           <div className="comment-rich">
             <div className="comment-content-author">
@@ -27,7 +28,7 @@ class Comment extends Component {
               <span className="comment-content-author-time">{notOnlyShow ? dateForNow(create_time) : create_time}</span>
             </div>
             {
-              notOnlyShow ? <Link href={'/sitedetail/'+site_id} ><a className="underline">{contentDiv}</a></Link> : contentDiv
+              notOnlyShow ? <Link href={routerMap.sitedetail + '?id='+site_id} ><a className="underline">{contentDiv}</a></Link> : contentDiv
             }
             
             {children}

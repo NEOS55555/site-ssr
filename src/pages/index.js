@@ -10,6 +10,7 @@ import axios from 'axios'
 import ComContent from '@/components/ComContent'
 // import SiteItem from '@/commonComp/SiteItem'
 import RightComp from '@/commonComp/RightComp'
+import { getServeAuthorization } from '@/common/common'
 
 class HomePage extends Component {
   
@@ -41,12 +42,9 @@ class HomePage extends Component {
 
 export async function getServerSideProps(context) {
   console.log('in getServerSideProps --------')
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
-  // console.log(context.params)
-  const { query: { pageIndex=1, status=-1, catalog=-1, search } } = context;
-  // console.log('getServerSideProps ---', context.query)
-  // console.log(url+'/getSiteDetail')
+  
+  const { req, query: { pageIndex=1, status=-1, catalog=-1, search } } = context;
+  // console.log(getServeAuthorization(req))
   const res = await axios.post(serverUrl+'/getSiteList', {
     pageIndex: parseInt(pageIndex),
     pageSize: 10,
@@ -54,11 +52,8 @@ export async function getServerSideProps(context) {
     catalog,
     search,
     isTotal: true
-  })
-  // console.log(res)
-  // console.log('in getServerSideProps')
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
+  }, { headers: getServeAuthorization(req) })
+  
   return {
     props: {
       ...res.data.result

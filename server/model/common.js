@@ -24,7 +24,8 @@ exports.getNextSequenceValue = (db, sequenceName) => {
 		}).catch(err => reject(err))
 	})
 }
-exports.trim = (str='') => str.replace(/^\s+|\s+$/gm,'')
+const trim = (str='') => str.replace(/^\s+|\s+$/gm,'');
+exports.trim = trim;
 
 // 创建文件夹
 
@@ -188,3 +189,18 @@ exports.getStrChartLen = (str='') => {
 }
 
 exports.fromatIOSDate = date => silly.format(date, 'YYYY-MM-DD HH:mm:ss')
+
+exports.strSearch = (str='') => {
+	str = trim(str);
+	if ( /\$\(\)\*\+\.\[\]\?\\\/\^\{\}/ig.test(str)) {
+		str = '\\' + str;
+	}
+	let reg = null
+	try {
+		reg = new RegExp(str, 'gim')
+	} catch (e) {
+		reg = new RegExp('')
+		console.log('reg err')
+	}	
+	return reg;
+}

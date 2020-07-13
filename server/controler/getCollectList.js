@@ -73,17 +73,17 @@ module.exports = async (req, res, next) => {
 	if (isTotal == 1) {
 		$facet.total = [{$count: 'list_total'}]
 	}
-	console.log($match)
+	// console.log($match)
 	sitedb.aggregate('collections', [
 		{ $match },
 		{ $facet }
 	]).then(([result={}]) => {
-		console.log(result)
+		// console.log(result)
 		
 		const { list: tList=[], total: total_temp } = result
 		const list = tList.map(it => {
-			let temp = it.site[0];
-			temp.rate = get$rated$val(temp.rate, user_ip);
+			let temp = it.site[0] || {};
+			temp.rate = get$rated$val(temp.rate || [], user_ip);
 			temp.create_time = fromatIOSDate(temp.create_time)
 			temp.isCollected = true
 			return temp

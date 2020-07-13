@@ -7,7 +7,7 @@ import Cropper from './react-cropper';
 import { saveportrait, getUserportrait } from '@/store/actions'
 // import { withRouter } from "react-router";
 
-import loading from '@/commonComp/Loading'
+// import loading from '@/commonComp/Loading'
 // import defaultFace from '@/assets/images/face.png'
 
 import eventBus from '@/common/eventBus'
@@ -37,7 +37,7 @@ class Portrait extends Component {
   }
   componentDidMount () {
     // const { history } = this.props;
-    loading.transShow()
+    // loading.transShow()
     getUserportrait().then(res => {
       const { result } = res;
       this.setState({

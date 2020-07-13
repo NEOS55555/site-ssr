@@ -69,7 +69,7 @@ class HomePage extends Component {
 }
 
 export async function getServerSideProps(context) {
-  console.log('in getServerSideProps --------')
+  // console.log('in getServerSideProps --------')
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   // console.log(context.params)

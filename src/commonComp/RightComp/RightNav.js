@@ -8,6 +8,7 @@ import { withRouter } from "next/router";
 // import { isSystemPage } from '@/common/common'
 // import { updateSiteMngData } from '@/store/actions'
 
+import routerMap from '@/common/router'
 // const { SubMenu } = Menu;
 
 class RightNav extends Component {
@@ -53,7 +54,7 @@ class RightNav extends Component {
         	{
         		catalogListSite.map(({_id, name, total}) => 
               <Menu.Item key={_id}>
-                <Link href={(isSystem ? '/system' : '') + '?catalog=' + _id /*+ '/' + search*/} >
+                <Link href={(isSystem ? routerMap.system : routerMap.index) + '?catalog=' + _id /*+ '/' + search*/} >
                   <a>{name} { total && !isSystem ? `(${total})` : ''}</a>
                 </Link>
               </Menu.Item>

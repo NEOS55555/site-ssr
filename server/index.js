@@ -50,7 +50,7 @@ nextApp.prepare()
     app.use(cookieParser());
     app.use(bodyParser.json({limit: '2mb'}));
     app.use(bodyParser.urlencoded({limit: '2mb', extended:false}));
-    app.use(express.static('./public'));
+    // app.use(express.static('./public'));
     app.use('/img', express.static('./upload'));
     // 路由中间件
     app.use('/api', router); // 添加router中间件

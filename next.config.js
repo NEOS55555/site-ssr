@@ -8,6 +8,10 @@ module.exports = withPlugins([withSass,withCss], {
   webpack: override(addWebpackAlias({
     '@': path.resolve('src'),
   })),
+  publicRuntimeConfig: {
+    // Will be available on both server and client
+    staticFolder: '/img',
+  },
   env: {
   	API_HOST: 'http://127.0.0.1',
     PORT: process.env.NODE_ENV !== 'production' ? 5555 : 80
