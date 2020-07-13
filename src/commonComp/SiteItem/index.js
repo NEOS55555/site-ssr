@@ -213,7 +213,7 @@ class SiteItem extends Component {
 								{
 									tags.map((name, index) => 
 										<Fragment key={index}>
-											<Link href={routerMap.tag + '?tag_name=' + name}><a>{name}</a></Link>
+											<Link href={routerMap.tag + '?words=' + name}><a>{name}</a></Link>
 											{index !== tags.length - 1 && '、'}
 										</Fragment>) 
 								}
