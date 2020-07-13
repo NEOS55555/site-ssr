@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getRecomdList } from '@/store/actions'
 import imgurl from '@/common/url'
 // import { Link } from "react-router-dom";
-import Link from 'next/Link'
+import Link from 'next/link'
 
 class RecomdList extends Component {
   state = {
