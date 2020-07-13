@@ -42,6 +42,7 @@ export default class MyApp extends Component {
       		<title>{m_title}</title>
           <link rel="icon" href="/favicon.ico" />
           <meta name="baidu-site-verification" content="S6kx3QAdX2" />
+          <meta name="sogou_site_verification" content="OTrlpJrfft"/>
           <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
           <meta
             name="description"
