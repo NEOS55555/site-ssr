@@ -197,7 +197,7 @@ class SiteItem extends Component {
 					</div>
 					<div className="rich-footer">
 						<ul>
-							<li>地址：<a className="underline color-blue"  href={url} el="nofollow" rel="noopener noreferrer" target="_blank" onClick={this.linkTo}>{url}</a></li>
+							<li>地址：<a className="underline color-blue" title={name} href={url} el="nofollow" rel="noopener noreferrer" target="_blank" onClick={this.linkTo}>{url}</a></li>
 							<li>
 								分类： 
 								{
