@@ -44,7 +44,8 @@ module.exports = async (req, res, next) => {
 	tag_name = trim(tag_name);
 	search = trim(search);
 	catalog = parseInt(catalog) || -1;
-	status = parseInt(status) || -1;
+	status = parseInt(status);
+	status = status === 0 ? status : status || -1
 
 	// status = status
 	
