@@ -11,7 +11,7 @@ import { saveportrait, getUserportrait } from '@/store/actions'
 // import defaultFace from '@/assets/images/face.png'
 
 import eventBus from '@/common/eventBus'
-import { getImrUrl } from '@/common/url'
+import { imgUrl } from '@/common/url'
 /* global FileReader */
 import {
 
@@ -41,7 +41,7 @@ class Portrait extends Component {
     getUserportrait().then(res => {
       const { result } = res;
       this.setState({
-        orgSrc: result ? getImrUrl() + result : defaultFace
+        orgSrc: result ? imgUrl + result : defaultFace
       })
     }).catch(res => {
       eventBus.emit('logout#toHome', res)

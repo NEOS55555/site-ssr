@@ -17,7 +17,7 @@ import Link from 'next/link'
 import routerMap from '@/common/router'
 // import showImg from '@/commonComp/ShowImg'
 import eventBus from '@/common/eventBus'
-import { getImrUrl } from '@/common/url'
+import { imgUrl } from '@/common/url'
 import Router from 'next/router'
 
 
@@ -192,7 +192,7 @@ class SiteItem extends Component {
 					<div className="rich-content-text" dangerouslySetInnerHTML={{__html: desc}} ></div>
 					<div className="rich-content-cover">
 						<div className="rich-content-cover-inner">
-							{img && <img onClick={() => open(getImrUrl() + img)} src={getImrUrl() + img} alt="网页展示图" title={name} />}
+							{img && <img onClick={() => open(imgUrl + img)} src={imgUrl + img} alt="网页展示图" title={name} />}
 						</div>
 					</div>
 					<div className="rich-footer">
