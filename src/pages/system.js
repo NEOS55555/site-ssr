@@ -68,26 +68,7 @@ class HomePage extends Component {
 }
 
 export async function getServerSideProps(context) {
-  // console.log('in getServerSideProps --------')
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
-  // console.log(context.params)
- /* const { query: { pageIndex=1, status, catalog, search } } = context;
-  // console.log('getServerSideProps ---', context.query)
-  // console.log(url+'/getSiteDetail')
-  const res = await axios.post(serverUrl+'/getSiteList', {
-    pageIndex: parseInt(pageIndex),
-    pageSize: 10,
-    status,
-    catalog,
-    search,
-    is_edit: true,
-    isTotal: true
-  })
-  console.log(res.data)*/
-  // console.log('in getServerSideProps')
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
+
   return {
     props: {
       // defaultList: res.data.result.list,

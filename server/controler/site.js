@@ -141,12 +141,12 @@ function checkSiteImg (req, res, fields, files, _id) {
 		// 重新命名并转存 
 		var ttt = silly.format(new Date(), 'YYYYMMDDHHmmss')
 		tname = ttt + parseInt(Math.random() * 99999) + extname
-		// ../../public/img
+		
 		fileurl = true
 		// 如果图片改变了就先删除图片,但并不删除文件夹
-		deleteFolder(path.join(__dirname,`../../public/img/sites/${_id}`), true)
-		mkdir(`/public/img/sites/${_id}`)
-		const newpath = path.join(__dirname, `../../public/img/sites/${_id}/${tname}`)
+		deleteFolder(path.join(__dirname,`../../online-images/images/sites/${_id}`), true)
+		mkdir(`/online-images/images/sites/${_id}`)
+		const newpath = path.join(__dirname, `../../online-images/images/sites/${_id}/${tname}`)
 		try {
 			fs.renameSync(oldpath, newpath)
 		} catch (err) {

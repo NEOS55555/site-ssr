@@ -28,8 +28,8 @@ module.exports = (req, res, next) => {
 	var base64Data = imgData.replace(/^data:image\/\w+;base64,/, "");
 	var dataBuffer = Buffer.from(base64Data, 'base64');
 	// let fileurl = 
-	mkdir(`/public/img/users/${user_name}`)
-	const pngPath = path.join(__dirname, `../../public/img/users/${user_name}/portrait.png`)
+	mkdir(`/online-images/images/users/${user_name}`)
+	const pngPath = path.join(__dirname, `../../online-images/images/users/${user_name}/portrait.png`)
 	// const pngName = '/portrait1.png';
 	images(dataBuffer).size(112).save(pngPath, {            
         quality : 50                    //保存图片到文件,图片质量为50

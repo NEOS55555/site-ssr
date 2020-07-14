@@ -61,7 +61,7 @@ module.exports = async (req, res, next) => {
 			await sitedb.deleteMany('comments', {site_id: _id})
 			await sitedb.deleteMany('comments_reply', {site_id: _id})
 
-			deleteFolder(path.join(__dirname,`../upload/sites/${_id}`))
+			deleteFolder(path.join(__dirname,`../../online-images/images/sites/${_id}`))
 			res.json(success())
 			
 		}
