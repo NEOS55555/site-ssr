@@ -24,7 +24,7 @@ class CloseIcon extends Component {
 
 	showModel = () => {
     const { data, router: { query: { pageIndex=1, status, catalog, search } } } = this.props;
-		console.log(data)
+		// console.log(data)
 		const { _id, status: cstatus, name } = data;
 		const isdown = cstatus === NORMAL_CODE;
 		const txt = isdown ? '下架' : '删除'
