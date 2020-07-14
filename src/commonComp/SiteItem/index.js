@@ -4,7 +4,6 @@ import { EditOutlined, HeartFilled } from '@ant-design/icons'
 import { getStatus, getCeil5 } from '@/common/common'
 import { NORMAL_CODE } from '@/common/constant'
 // import Dialog from '@/commonComp/Dialog'
-// import imgurl from '@/common/url'
 // import cookie from 'react-cookies'
 import { setRate, addView, collectSite } from '@/store/actions'
 import { Rate, Spin, Tooltip } from 'antd';
@@ -18,7 +17,7 @@ import Link from 'next/link'
 import routerMap from '@/common/router'
 // import showImg from '@/commonComp/ShowImg'
 import eventBus from '@/common/eventBus'
-import { imgUrl } from '@/common/url'
+import { getImrUrl } from '@/common/url'
 import Router from 'next/router'
 
 
@@ -193,7 +192,7 @@ class SiteItem extends Component {
 					<div className="rich-content-text" dangerouslySetInnerHTML={{__html: desc}} ></div>
 					<div className="rich-content-cover">
 						<div className="rich-content-cover-inner">
-							{img && <img onClick={() => open(imgUrl + img)} src={imgUrl + img} alt="网页展示图" title={name} />}
+							{img && <img onClick={() => open(getImrUrl() + img)} src={getImrUrl() + img} alt="网页展示图" title={name} />}
 						</div>
 					</div>
 					<div className="rich-footer">

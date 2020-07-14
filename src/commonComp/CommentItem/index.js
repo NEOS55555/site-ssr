@@ -3,7 +3,7 @@ import Link from 'next/link'
 // import defaultFace from '@/assets/images/face.png'
 // import { Link } from "react-router-dom";
 import { dateForNow } from '@/common/common'
-import { imgUrl } from '@/common/url'
+import { getImrUrl } from '@/common/url'
 import routerMap from '@/common/router'
 import './Comment.scss'
 
@@ -19,7 +19,7 @@ class Comment extends Component {
       <div className="comment-item">
         <div className="comment-box">
           <div className="comment-avatar">
-            <img src={user_face ? imgUrl + user_face : defaultFace} alt="头像"/>
+            <img src={user_face ? getImrUrl() + user_face : defaultFace} alt="头像"/>
           </div>
           <div className="comment-rich">
             <div className="comment-content-author">
