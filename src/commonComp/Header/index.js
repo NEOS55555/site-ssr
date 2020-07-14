@@ -111,11 +111,11 @@ class Header extends Component {
 
     const menu = (
       <Menu className="user-setting-list">
-        <Menu.Item><Link href="/collect"><a>我的收藏</a></Link></Menu.Item>
-        <Menu.Item><Link href="/replyme"><a>回复我的{ check_reply_num === 0 ? '' : `(${check_reply_num})`}</a></Link></Menu.Item>
-        <Menu.Item><Link href="/account/portrait" ><a>账号管理</a></Link></Menu.Item>
+        <Menu.Item><Link href="/collect"><a >我的收藏</a></Link></Menu.Item>
+        <Menu.Item><Link href="/replyme"><a >回复我的{ check_reply_num === 0 ? '' : `(${check_reply_num})`}</a></Link></Menu.Item>
+        <Menu.Item><Link href="/account/portrait" ><a >账号管理</a></Link></Menu.Item>
         {
-          is_async && <Menu.Item className="async-li"><Link href="/catalogmng"><a>分类管理</a></Link></Menu.Item>}
+          is_async && <Menu.Item className="async-li"><Link  href="/catalogmng"><a>分类管理</a></Link></Menu.Item>}
             
           {is_async && <Menu.Item className="async-li"><Link href="/noticemng"><a>公告管理</a></Link></Menu.Item>}
         
@@ -128,11 +128,11 @@ class Header extends Component {
       <div className="header">
         <div className="max-container">
           <div className="logo-ctn">
-            <Link href="/"><a className="logo"><img src={logo} alt="首页"/></a></Link>
+            <Link href="/"><a title="有趣实用网" className="logo"><img src={logo} alt="首页"/></a></Link>
             <ul className="top-nav-list">
-              <li><Link href="/"><a>首页</a></Link></li>
-              <li><Link href="/feedback"><a>留言板</a></Link></li>
-              <li><Link href="/standard"><a>收录标准</a></Link></li>
+              <li><Link href="/"><a title="首页">首页</a></Link></li>
+              <li><Link href="/feedback"><a title="留言板">留言板</a></Link></li>
+              <li><Link href="/standard"><a title="收录标准">收录标准</a></Link></li>
               {
                 is_async && 
                 <Fragment>

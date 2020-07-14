@@ -163,7 +163,7 @@ class SiteItem extends Component {
 			<div className={"site-item " + (onlyShow ? 'only-show' : '')}>
 				<h2 className="site-title">
 					{
-						isNormal ? <Link href={routerMap.sitedetail + '?id=' + _id}><a>{name}</a></Link> : <span >{name} {getStatus(status)}</span>
+						isNormal ? <Link href={routerMap.sitedetail + '?id=' + _id}><a><strong>{name}</strong></a></Link> : <span >{name} {getStatus(status)}</span>
 					}
 					
 					{/*<Tooltip placement="right" title={`点击跳转`}>
@@ -192,18 +192,18 @@ class SiteItem extends Component {
 					<div className="rich-content-text" dangerouslySetInnerHTML={{__html: desc}} ></div>
 					<div className="rich-content-cover">
 						<div className="rich-content-cover-inner">
-							{img && <img onClick={() => open(img)} src={img} alt="网页展示图"/>}
+							{img && <img onClick={() => open(img)} src={img} alt="网页展示图" title={name} />}
 						</div>
 					</div>
 					<div className="rich-footer">
 						<ul>
-							<li>地址：<a className="underline color-blue" href={url} rel="noopener noreferrer" target="_blank" onClick={this.linkTo}>{url}</a></li>
+							<li>地址：<a className="underline color-blue"  href={url} el="nofollow" rel="noopener noreferrer" target="_blank" onClick={this.linkTo}>{url}</a></li>
 							<li>
 								分类： 
 								{
 									catalog.map((id, index) => 
 										<Fragment key={id}>
-											<Link href={routerMap.index + '?catalog=' + id}><a>{(catalogMap[id] || id)}</a></Link> 
+											<Link href={routerMap.index + '?catalog=' + id}><a title={catalogMap[id] || id}>{(catalogMap[id] || id)}</a></Link> 
 											{index !== catalog.length - 1 && '、'}
 										</Fragment>) 
 								}
@@ -213,7 +213,7 @@ class SiteItem extends Component {
 								{
 									tags.map((name, index) => 
 										<Fragment key={index}>
-											<Link href={routerMap.tag + '?words=' + name}><a>{name}</a></Link>
+											<Link href={routerMap.tag + '?words=' + name}><a title={name}>{name}</a></Link>
 											{index !== tags.length - 1 && '、'}
 										</Fragment>) 
 								}
@@ -224,7 +224,7 @@ class SiteItem extends Component {
 						{
 							isNormal && !onlyShow && 
 							<div className="align-right">
-								<Link href={routerMap.sitedetail + '?id=' + _id} ><a className="link-to">查看评论({commit_total})</a></Link>
+								<Link href={routerMap.sitedetail + '?id=' + _id} ><a title="评论" className="link-to">查看评论({commit_total})</a></Link>
 							</div>
 					}
 					</div>
