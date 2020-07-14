@@ -1,27 +1,29 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
+// import {connect} from 'react-redux'
 import { Menu } from 'antd';
 // import { withRouter } from "react-router";
 import { statusArr } from '@/common/constant'
 import { getSiteList, updateSiteMngData } from '@/store/actions'
+// import Link from 'next/link'
+import Router, { withRouter } from "next/router";
+import routerMap from '@/common/router'
 
 // const { SubMenu } = Menu;
 
 class StatusNav extends Component {
 	
   onSelect = (a, b, c) => {
-    const { pageSize, catalog, search } = this.props;
-    const { updateDate, getSiteList } = this.props;
-    const status = parseInt(a.key)
-    updateDate({
-      status,
-      pageIndex: 1
+    const { router: { query: { pageIndex=1, catalog=-1, search } } } = this.props;
+    // debugger;
+    // console.log(a.key, b, c)
+    Router.push({
+      pathname: routerMap.system,
+      query: { pageIndex, status: a.key, catalog, search },
+
     })
-    getSiteList({catalog, status, pageIndex: 1, pageSize, search, isTotal: true, is_edit: true});
-    // console.log(a, b, c)
   }
 	render () {
-		const { status } = this.props;
+    const { router: { query: { pageIndex=1, status=-1, catalog=-1, search } } } = this.props;
 		// console.log(match.params.catalog)
 		return (
       <div className="nav-list status-nav">
@@ -43,16 +45,16 @@ class StatusNav extends Component {
 		)
 	}
 }
-const mapStateToProps = state => {
+/*const mapStateToProps = state => {
   const { pageSize, catalog, status, search } = state.siteMng
   return {
     pageSize, catalog, search,
     status,
   };
 };
+*/
 
-
-const mapDispatchToProps = dispatch => {
+/*const mapDispatchToProps = dispatch => {
   return {
     updateDate (data) {
       return dispatch(updateSiteMngData(data))
@@ -61,5 +63,5 @@ const mapDispatchToProps = dispatch => {
       return dispatch(getSiteList(params))
     },
   };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(StatusNav);
+};*/
+export default withRouter(StatusNav);

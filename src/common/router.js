@@ -27,4 +27,18 @@ const routerMap = {
 	index: '/',
 }
 
+const getRouter$params = (type, params) => {
+	let str = routerMap[type] + '?';
+	for (let i in params) {
+		str += i + '=' + params[i] + '&'
+	}
+	return str.slice(0, str.length - 1)
+}
+
+export {
+	getRouter$params
+	// getImrUrl
+}
+
+
 export default routerMap

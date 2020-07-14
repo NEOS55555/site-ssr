@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // import { Input, Button } from 'antd';
 // import { withRouter } from "react-router";
 import SiteItem from '@/commonComp/SiteItem'
@@ -40,14 +40,17 @@ class SiteDetail extends Component {
         <div className="site-container">
           {
             !!siteData._id 
-             ? <SiteItem 
-                isSystem={false} 
-                onlyShow={true}
-                data={siteData} 
-              />
+             ? <Fragment>
+                <SiteItem 
+                  isSystem={false} 
+                  onlyShow={true}
+                  data={siteData} 
+                />
+                <RecomdList siteId={id} catalog={(siteData.catalog || []).join(',')} />
+               </Fragment>
               : <p>非常抱歉，该网站已下架！</p>
           }
-          <RecomdList siteId={id} catalog={(siteData.catalog || []).join(',')} />
+          
           <h3 className="title" style={{marginTop: 15}} >评论</h3>
           <CommentCtn siteId={id} />
         </div>

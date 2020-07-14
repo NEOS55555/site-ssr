@@ -3,8 +3,8 @@ import RightComp from '@/commonComp/RightComp'
 import SiteDetail from '@/components/SiteDetail'
 import axios from 'axios'
 import { getSiteDetail, addView } from '@/store/actions'
-import Router from 'next/router'
-import { withRouter } from "next/router";
+// import Router from 'next/router'
+import Router, { withRouter } from "next/router";
 import { serverUrl } from '@/common/url'
 import eventBus from '@/common/eventBus'
 import routerMap from '@/common/router'

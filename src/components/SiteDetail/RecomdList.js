@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { getRecomdList } from '@/store/actions'
-import imgurl from '@/common/url'
 // import { Link } from "react-router-dom";
 import Link from 'next/link'
+import { imgUrl } from '@/common/url'
+import routerMap from '@/common/router'
 
 class RecomdList extends Component {
   state = {
@@ -16,9 +17,9 @@ class RecomdList extends Component {
       // console.log(siteId, catalog)
     }
   }
-  /*componentDidMount () {
-    // this.getRecomdList();
-  }*/
+  componentDidMount () {
+    this.getRecomdList();
+  }
   getRecomdList = () => {
     const { catalog } = this.props;
     getRecomdList({catalog}).then(res => {
@@ -33,16 +34,16 @@ class RecomdList extends Component {
     const { list } = this.state;
     return (
       <div className="recomd-wrapper">
-        <div className="title">相关推荐∵</div>
+        <div className="title">相关推荐</div>
         <ul>
           {
             list.map(it => 
               <li key={it._id}>
-                <Link href={'/sitedetail/'+it._id}>
-                  <a>
+                <Link href={routerMap.sitedetail+'?id='+it._id}>
+                  <a title={`查看“${it.name}”详情`}>
                     <p>{it.name}</p>
                     <div className="img-ctn">
-                      <img src={imgurl+it.img} alt="图片"/>
+                      <img src={imgUrl+it.img} alt="图片"/>
                     </div>
                   </a>
                 </Link>
