@@ -45,7 +45,7 @@ module.exports = async (req, res, next) => {
 		}
 		res.json(success(o))
 	} catch (e) {
-		console.log('error')
+		console.log(e)
 		res.json(failed('', 'db err!'))
 	}
 	
