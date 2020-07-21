@@ -26,7 +26,7 @@ import {
 	descControls
 } from '@/common/constant'
 import ReactDOM from 'react-dom';
-import imgUrl from '@/common/url'
+import { imgUrl } from '@/common/url'
 // import defaultImg from './default-cover.jpg';
 // import defaultImg from '@/assets/images/black-hole.png';
 // import cookie from 'react-cookies'

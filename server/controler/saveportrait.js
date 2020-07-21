@@ -9,6 +9,9 @@ const images = require("images");
 const {
 	mkdir,
 } = require('../model/common.js')
+const {
+	IMG_DIR,
+} = require('./constant.js')
 const fs = require('fs');
 const path = require('path');
 
@@ -29,7 +32,7 @@ module.exports = (req, res, next) => {
 	var dataBuffer = Buffer.from(base64Data, 'base64');
 	// let fileurl = 
 	mkdir(`/online-images/images/users/${user_name}`)
-	const pngPath = path.join(__dirname, `../../online-images/images/users/${user_name}/portrait.png`)
+	const pngPath = path.join(IMG_DIR, `/users/${user_name}/portrait.png`)
 	// const pngName = '/portrait1.png';
 	images(dataBuffer).size(112).save(pngPath, {            
         quality : 50                    //保存图片到文件,图片质量为50

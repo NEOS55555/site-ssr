@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+const path = require('path');
 
 const RET = fs.readFileSync(__dirname + '/private.key').toString();
 
@@ -11,6 +12,7 @@ const REVIEW_CODE = 3;	// 待审核
 const MAIL_MAX_COUNT = 5;
 
 const REG_CODE_EXP = 30 * 60 * 1000;
+const IMG_DIR = path.join(__dirname, '../../../online-images/images')
 
 // const RET = 'shhhhh';
 
@@ -43,5 +45,6 @@ module.exports = {
 	ONE_DAY_MAX_ADD: 5,	// 每日新增最多5条
 	MAX_SIT_DESC: 600,		// 文字个数,前端为400，多的200是各种标签
 	REGISTER_CODE: 'REGISTER_CODE',
-	RESET_PASSWORD_CODE: 'RESET_PASSWORD_CODE'
+	RESET_PASSWORD_CODE: 'RESET_PASSWORD_CODE',
+	IMG_DIR
 }

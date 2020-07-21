@@ -31,6 +31,7 @@ const {
 	MAX_SITE_NAME,
 	MAX_SIT_DESC,
 	MAX_SITE_IMG,
+	IMG_DIR,
 } = require('./constant')
 
 // 检查网站新增以及编辑的参数是否正确
@@ -144,9 +145,9 @@ function checkSiteImg (req, res, fields, files, _id) {
 		
 		fileurl = true
 		// 如果图片改变了就先删除图片,但并不删除文件夹
-		deleteFolder(path.join(__dirname,`../../online-images/images/sites/${_id}`), true)
+		deleteFolder(path.join(IMG_DIR,`/sites/${_id}`), true)
 		mkdir(`/online-images/images/sites/${_id}`)
-		const newpath = path.join(__dirname, `../../online-images/images/sites/${_id}/${tname}`)
+		const newpath = path.join(IMG_DIR, `/sites/${_id}/${tname}`)
 		try {
 			fs.renameSync(oldpath, newpath)
 		} catch (err) {
