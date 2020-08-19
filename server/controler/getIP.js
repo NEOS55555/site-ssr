@@ -21,20 +21,21 @@ module.exports = async (req, res, next) => {
 	const {_id, name, is_async} = isUserLogin(req.headers.authorization)
 	// 增加浏览次数
 	try {
-		const result = await sitedb.findOneAndUpdate('views',
+		/*const result = await sitedb.findOneAndUpdate('views',
 			{ ip },
 			{ $inc:{ count:1 } },
 			{ new:true }
 		)
-		if (!result.value) {
+		if (!result.value) {*/
 			const view_id = await getNextSequenceValue(sitedb, 'site_views')
 			sitedb.insertOne('views', {
 				_id: view_id,
 				user_id: _id,
 				ip,
-				count: 1,
+				create_time: new Date(),
+				// count: 1,
 			})
-		}
+		// }
 		let o = {}
 		if (_id) {
 			const [user] = await sitedb.find('users', {_id})

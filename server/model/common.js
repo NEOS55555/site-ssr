@@ -29,12 +29,12 @@ exports.trim = trim;
 
 // 创建文件夹
 
-exports.mkdir =  (filepath) => {
+exports.mkdir =  (filepath, isSeDir) => {
     const arr=filepath.split('/');
-    let dir='.';
+    let dir= isSeDir ? '' : '.';
     let f = false
     for(let i=0;i<arr.length;i++){
-        dir += '/'+arr[i];
+        dir += (isSeDir ? '' : '/')+arr[i];
     		// console.log(dir,i,fs.existsSync(dir), dirCache[dir])
         if(!fs.existsSync(dir)){
             fs.mkdirSync(dir);
