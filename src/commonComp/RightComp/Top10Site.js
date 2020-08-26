@@ -50,7 +50,7 @@ class Top10Site extends Component {
         	{
         		top10List.map(({_id, name, url}) => 
               <li key={_id}>
-                <Link href={'/sitedetail?_id='+_id}>
+                <Link href={'/sitedetail?id='+_id}>
                   <a className="underline" onClick={() => addView({_id})}>{name}</a>
                 </Link>
               </li>)
