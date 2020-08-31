@@ -30,6 +30,7 @@ exports.trim = trim;
 // 创建文件夹
 
 exports.mkdir =  (filepath, isSeDir) => {
+	console.log(filepath)
     const arr=filepath.split('/');
     let dir= isSeDir ? '' : '.';
     let f = false
