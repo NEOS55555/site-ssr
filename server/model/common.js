@@ -28,8 +28,12 @@ const trim = (str='') => str.replace(/^\s+|\s+$/gm,'');
 exports.trim = trim;
 
 // 创建文件夹
-
-exports.mkdir =  (filepath, isSeDir) => {
+exports.mkdir = (filepath) => {
+	if(!fs.existsSync(filepath)){
+	    fs.mkdirSync(filepath);
+	}
+}
+/*exports.mkdir =  (filepath, isSeDir) => {
 	console.log(filepath)
     const arr=filepath.split('/');
     let dir= isSeDir ? '' : '.';
@@ -44,7 +48,7 @@ exports.mkdir =  (filepath, isSeDir) => {
         }
     }
     return f;
-}
+}*/
 /*exports.mkdir = (() => {
 	const dirCache={};
 	return (filepath) => {
