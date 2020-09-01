@@ -31,7 +31,7 @@ module.exports = (req, res, next) => {
 	var base64Data = imgData.replace(/^data:image\/\w+;base64,/, "");
 	var dataBuffer = Buffer.from(base64Data, 'base64');
 	// let fileurl = 
-	mkdir(`/online-images/images/users/${user_name}`)
+	fs.mkdirSync(`../../../online-images/images/users/${user_name}`)
 	const pngPath = path.join(IMG_DIR, `/users/${user_name}/portrait.png`)
 	// const pngName = '/portrait1.png';
 	images(dataBuffer).size(112).save(pngPath, {            

@@ -145,14 +145,19 @@ function checkSiteImg (req, res, fields, files, _id) {
 		
 		fileurl = true
 		// 如果图片改变了就先删除图片,但并不删除文件夹
-		mkdir(`/online-images/images/sites/${_id}`)
 		deleteFolder(path.join(IMG_DIR,`/sites/${_id}`), true)
+		fs.mkdirSync(`../../../online-images/images/sites/${_id}`)
 		const newpath = path.join(IMG_DIR, `/sites/${_id}/${tname}`)
 		try {
 			fs.renameSync(oldpath, newpath)
 		} catch (err) {
 			console.log('checkSiteImg', err)
-			fs.unlink(oldpath);
+			console.log('*************************************************************')
+			fs.unlink(oldpath, function (err) {
+				if (err) {
+					console.log('unlink error', err)
+				}
+			});
 			res.json(failed('', '图片重命名出错!'))
 			return false;
 		}
