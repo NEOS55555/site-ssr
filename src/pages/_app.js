@@ -29,6 +29,24 @@ const AddWebSite = dynamic(
 // const GloCss = Style(reset, media)
 
 export default class MyApp extends Component {
+	componentDidMount () {
+	  /*window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-177435629-1');
+	  console.log(dataLayer)*/
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-177435629-1', 'auto');
+		/*if (location.hostname == 'localhost') {
+		  ga('set', 'sendHitTask', null);
+		}*/
+		ga('send', 'pageview');
+	}
 	render () {
 		const { Component, pageProps } = this.props;
 		const { 
@@ -49,6 +67,8 @@ export default class MyApp extends Component {
             content={filterHTMLTag(m_description)}
           />
           <meta name="keywords" content={m_keywords} />
+					{/*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177435629-1"></script>*/}
+
         </Head>
 				<div id="root">
 					<Header></Header>
