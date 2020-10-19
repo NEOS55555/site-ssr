@@ -36,16 +36,25 @@ export default class MyApp extends Component {
 
 	  gtag('config', 'UA-177435629-1');
 	  console.log(dataLayer)*/
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  /*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 		ga('create', 'UA-177435629-1', 'auto');
-		/*if (location.hostname == 'localhost') {
-		  ga('set', 'sendHitTask', null);
-		}*/
-		ga('send', 'pageview');
+		ga('send', 'pageview');*/
+		!function(e,t,n,g,i){
+			var tag;
+			e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},
+			n=t.createElement("script"),
+			tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.giocdn.com/2.1/gio.js","gio");
+		  gio('init','856584e8e914748c', {});
+
+		//custom page code begin here
+
+		//custom page code end here
+
+		gio('send');
 	}
 	render () {
 		const { Component, pageProps } = this.props;

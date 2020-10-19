@@ -20,11 +20,12 @@ class Content {
 		MongoClient.connect('mongodb://127.0.0.1:27017/', {
 			useUnifiedTopology: true     //这个即是报的警告
 		}, (err, db) => {
-			var dbo = db.db(this.dbName);
 			if (err) {
+				console.log('数据库连接失败')
 				(that.reject || reject)(err);
 				throw err;
 			}
+			var dbo = db.db(this.dbName);
 			callback(db, dbo);
 		})
 	}
