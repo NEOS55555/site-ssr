@@ -76,6 +76,14 @@ export default class MyApp extends Component {
             content={filterHTMLTag(m_description)}
           />
           <meta name="keywords" content={m_keywords} />
+
+					<meta http-equiv="x-dns-prefetch-control" content="on" />
+					<link rel="dns-prefetch" href="http://bdimg.share.baidu.com" />
+					<link rel="dns-prefetch" href="http://nsclick.baidu.com" />
+					<link rel="dns-prefetch" href="http://hm.baidu.com" />
+					<link rel="dns-prefetch" href="http://eiv.baidu.com" />
+
+
 					{/*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177435629-1"></script>*/}
 
         </Head>
